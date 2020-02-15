@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "uniqcast": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "uniqcast"
+    }
+  },
+  "defaultProject": "uniqcast",
+  "cli": {
+    "analytics": "056f056b-8ae5-443c-b6e7-825e91dbffc9"
+  }
 }
