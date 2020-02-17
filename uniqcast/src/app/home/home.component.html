@@ -1,0 +1,60 @@
+<div class="card mt-4">
+    <h4 class="card-header">Welcome UniqCast</h4>
+    <div class="card-body">
+        <h6>Users from secure api end point</h6>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <div *ngIf="!loading && channels.length===0">No channels</div>
+        <table *ngIf="channels">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Url</td>
+                <td>Action</td>
+            </tr>
+
+            <tr *ngFor="let channel of channels">
+                <td > 
+                    <label>{{channel.id}}</label>
+                </td>
+                <td > 
+                    <label *ngIf="!channel.edit">{{channel.name}}</label>
+                    <input *ngIf="channel.edit" type="text" class="form-control" id="name"
+                    required
+                    [(ngModel)]="channel.name" />
+                </td>
+                <td > 
+                    <label *ngIf="!channel.edit">{{channel.url}}</label>
+                    <input *ngIf="channel.edit" type="text" class="form-control" id="url"
+                    required
+                    [(ngModel)]="channel.url" />
+                </td>
+                <td > 
+                    <div *ngIf="!channel.edit">
+                    
+                        <button (click)="deleteChannel(channel)">Delete</button>
+                        <button (click)="channel.edit=true">Edit</button>
+                      </div>
+                      <div *ngIf="channel.edit">
+                        <button (click)="updateChannel(channel)">update</button>
+                      </div>
+                </td>
+
+                
+            </tr>
+        </table>
+
+        <button *ngIf="!newChannelForm" (click)="openNewChannelForm()">CREATE A CHANNEL</button>
+        <div *ngIf="newChannelForm">
+            <input type="text" class="form-control" placeholder="id" id="id"
+            required
+            [(ngModel)]="newChannel.id" />
+          <input type="text" class="form-control" placeholder="name" id="name"
+            required
+            [(ngModel)]="newChannel.name" />
+          <input type="text" class="form-control" placeholder="url" id="url"
+            required
+            [(ngModel)]="newChannel.url" />
+            <button (click)="addNew()">Add new</button>
+        </div>
+    </div>
+</div>
