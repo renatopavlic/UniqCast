@@ -6,10 +6,10 @@
         <div *ngIf="!loading && channels.length===0">No channels</div>
         <table *ngIf="channels">
             <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td>Url</td>
-                <td>Action</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Action</th>
             </tr>
 
             <tr *ngFor="let channel of channels">
@@ -31,11 +31,11 @@
                 <td > 
                     <div *ngIf="!channel.edit">
                     
-                        <button (click)="deleteChannel(channel)">Delete</button>
-                        <button (click)="channel.edit=true">Edit</button>
+                        <button (click)="deleteChannel(channel)" class="deletech">Delete</button>
+                        <button (click)="channel.edit=true" class="editch">Edit</button>
                       </div>
                       <div *ngIf="channel.edit">
-                        <button (click)="updateChannel(channel)">update</button>
+                        <button (click)="updateChannel(channel)">Update</button>
                       </div>
                 </td>
 
@@ -43,7 +43,7 @@
             </tr>
         </table>
 
-        <button *ngIf="!newChannelForm" (click)="openNewChannelForm()">CREATE A CHANNEL</button>
+        <button *ngIf="!newChannelForm" (click)="openNewChannelForm()" class="createch">CREATE A CHANNEL</button>
         <div *ngIf="newChannelForm">
             <input type="text" class="form-control" placeholder="id" id="id"
             required

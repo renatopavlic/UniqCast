@@ -1,5 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-table .td {
-    margin-left: 5px;
+.createch {
+   background-color: green;
+   color: white;
 }
+
+.deletech {
+    background-color: red;
+    color: white; 
+}
+
+.editch {
+       background-color: blue ;
+        color: white; 
+}
+
+table {
+    table-layout: auto;
+    width: 100%;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
